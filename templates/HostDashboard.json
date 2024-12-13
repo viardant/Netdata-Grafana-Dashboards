@@ -1,0 +1,5905 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_NETDATACLOUD",
+      "label": "netdatacloud",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "netdatacloud-netdata-datasource",
+      "pluginName": "netdata"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.5.0-80050"
+    },
+    {
+      "type": "datasource",
+      "id": "netdatacloud-netdata-datasource",
+      "name": "netdata",
+      "version": "2.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 41,
+      "panels": [],
+      "title": "Head",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "UPTIME",
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 36,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "system.uptime",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "uptime"
+          ],
+          "groupBy": "dimension",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "RAM",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "ACTIVE PROCESSES",
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 13,
+        "x": 4,
+        "y": 1
+      },
+      "id": 37,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "system.active_processes",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "active"
+          ],
+          "groupBy": "dimension",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "RAM",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "Anomaly Rate",
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 7,
+        "x": 17,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "inverted",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "anomaly_detection.anomaly_rate",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "anomaly_rate"
+          ],
+          "group": "avg",
+          "groupBy": "node",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "A",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "lte",
+                "reducer": "sum",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 17,
+        "x": 0,
+        "y": 4
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true,
+          "width": 110
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "anomaly_detection.type_anomaly_rate",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "groupBy": "dimension",
+          "nodes": [],
+          "refId": "A",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "title": "Anomaly Rate",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 4
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "anomaly_detection.type_anomaly_rate",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "groupBy": "dimension",
+          "nodes": [],
+          "refId": "A",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "title": "Anomalous Categories",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "([^_]+).*",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Field": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "groupby"
+              },
+              "Metric": {
+                "aggregations": []
+              },
+              "Total": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greaterOrEqual",
+                  "options": {
+                    "value": "1"
+                  }
+                },
+                "fieldName": "Total (sum)"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "transpose",
+          "options": {}
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "${NETDATA_NODE_ID}"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 12
+      },
+      "id": 53,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "cpu.powercap_intel_rapl_zone",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "power"
+          ],
+          "group": "max",
+          "groupBy": "node",
+          "method": "sum",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "A",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "title": "Power Usage",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "${NETDATA_NODE_ID}": "${NODE_NAME}"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "CPU",
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 30
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 16,
+        "y": 12
+      },
+      "id": 34,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "system.cpu",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "groupBy": "node",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "CPU",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "RAM",
+          "fieldMinMax": false,
+          "mappings": [],
+          "max": 17000,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 30
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "mbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 20,
+        "y": 12
+      },
+      "id": 35,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "system.ram",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "buffers",
+            "used"
+          ],
+          "groupBy": "node",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "RAM",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60000
+              },
+              {
+                "color": "red",
+                "value": 200000
+              }
+            ]
+          },
+          "unit": "Kbits"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "received"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net Download"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 16,
+        "y": 18
+      },
+      "id": 39,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "net.net",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "received",
+            "sent"
+          ],
+          "groupBy": "dimension",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "Disk io",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Net Upload",
+            "mode": "unary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "unary": {
+              "fieldName": "sent",
+              "operator": "abs"
+            }
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "time",
+                "Net Upload",
+                "received"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "nvme-pci-e48a7c6a"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "${NODE_NAME} NVME"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "coretemp-unk-019283bc"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "${NODE_NAME} CPU"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 21
+      },
+      "id": 54,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "contextId": "sensors.chip_sensor_temperature",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [],
+          "filterBy": "chip_id",
+          "filterValue": "nvme-pci-e48a7c6a",
+          "group": "max",
+          "groupBy": "chip_id",
+          "method": "avg",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "${NODE_NAME} NVME",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "sensors.chip_sensor_temperature",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [],
+          "filterBy": "chip_id",
+          "filterValue": "coretemp-unk-019283bc",
+          "group": "max",
+          "groupBy": "chip_id",
+          "hide": false,
+          "method": "avg",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "${NODE_NAME} CPU",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "#EAB839",
+                "value": 7500
+              },
+              {
+                "color": "red",
+                "value": 25000
+              }
+            ]
+          },
+          "unit": "KiBs"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "reads"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Disk Read"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 16,
+        "y": 24
+      },
+      "id": 38,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "contextId": "disk.io",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [],
+          "groupBy": "dimension",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "Disk io",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "calculateField",
+          "options": {
+            "alias": "Disk Write",
+            "mode": "unary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false,
+            "unary": {
+              "fieldName": "writes",
+              "operator": "abs"
+            }
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "time",
+                "reads",
+                "Disk Write"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "netdatacloud-netdata-datasource",
+        "uid": "${DS_NETDATACLOUD}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 1,
+          "fieldMinMax": false,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "RAM"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "mbytes"
+              },
+              {
+                "id": "max",
+                "value": 17000
+              },
+              {
+                "id": "displayName",
+                "value": "RAM"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "Disk"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "KiBs"
+              },
+              {
+                "id": "max"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-YlBl"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "CPU"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CPU"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "Net"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "Kbits"
+              },
+              {
+                "id": "max"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-BlPu"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Power Usage"
+              },
+              {
+                "id": "unit",
+                "value": "watt"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "NVME"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "celsius"
+              },
+              {
+                "id": "displayName",
+                "value": "NVME"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Processor"
+              },
+              {
+                "id": "unit",
+                "value": "celsius"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 12,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "contextId": "system.cpu",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "groupBy": "node",
+          "method": "sum",
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "CPU",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "system.ram",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "buffers",
+            "used"
+          ],
+          "groupBy": "node",
+          "hide": false,
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "RAM",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "disk.io",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "groupBy": "dimension",
+          "hide": false,
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "Disk",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "net.net",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "received",
+            "sent"
+          ],
+          "groupBy": "dimension",
+          "hide": false,
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "Net",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "cpu.powercap_intel_rapl_zone",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "dimensions": [
+            "power"
+          ],
+          "groupBy": "node",
+          "hide": false,
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "A",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "sensors.chip_sensor_temperature",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "filterBy": "chip_id",
+          "filterValue": "nvme-pci-e48a7c6a",
+          "groupBy": "chip_id",
+          "hide": false,
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "NVME",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        },
+        {
+          "contextId": "sensors.chip_sensor_temperature",
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "filterBy": "chip_id",
+          "filterValue": "coretemp-unk-019283bc",
+          "groupBy": "chip_id",
+          "hide": false,
+          "nodes": [
+            "${NETDATA_NODE_ID}"
+          ],
+          "refId": "B",
+          "roomId": "${NETDATA_ROOM_ID}",
+          "spaceId": "${NETDATA_SPACE_ID}"
+        }
+      ],
+      "title": "Average Resource Consumption",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "Disk"
+          },
+          "id": "calculateField",
+          "options": {
+            "alias": "Disk Write",
+            "mode": "unary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "unary": {
+              "fieldName": "writes",
+              "operator": "abs"
+            }
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "Net"
+          },
+          "id": "calculateField",
+          "options": {
+            "alias": "Net Upload",
+            "mode": "unary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "unary": {
+              "fieldName": "sent",
+              "operator": "abs"
+            }
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "time",
+                "received",
+                "Net Upload",
+                "Disk Write",
+                "${NETDATA_NODE_ID}",
+                "power",
+                "nvme-pci-e48a7c6a",
+                "coretemp-unk-019283bc",
+                "reads"
+              ]
+            }
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "reads",
+            "renamePattern": "Disk Read"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "received",
+            "renamePattern": "Net Download"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "mean"
+            ]
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 41
+      },
+      "id": 4,
+      "panels": [
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "High CPU load indicates resource contention or waiting processes. Spikes or consistent high values could highlight performance issues or bottlenecks.\n\nPressure represent the percentage of time tasks wait for CPU resources due to congestion, helping identify CPU saturation and contention.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 82
+          },
+          "id": 23,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.load",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Load",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.cpu_some_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Some Pressure",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "CPU Stress",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "load5",
+                    "some 60",
+                    "time",
+                    "load1",
+                    "some 300"
+                  ]
+                }
+              }
+            },
+            {
+              "filter": {
+                "id": "byRefId",
+                "options": "Load"
+              },
+              "id": "renameByRegex",
+              "options": {
+                "regex": "\\D*(\\d*)",
+                "renamePattern": "Load $1"
+              }
+            },
+            {
+              "filter": {
+                "id": "byRefId",
+                "options": "Some Pressure"
+              },
+              "id": "renameByRegex",
+              "options": {
+                "regex": "\\D*(\\d*)",
+                "renamePattern": "Pressure $1"
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "High CPU load indicates resource contention or waiting processes. Spikes or consistent high values could highlight performance issues or bottlenecks.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 10
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "some 300"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Pressure 5m"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "some 60"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Pressure 1m"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 82
+          },
+          "id": 22,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.load",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Load",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.cpu_some_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Some Pressure",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "load1",
+                    "load5",
+                    "some 60",
+                    "some 300"
+                  ]
+                }
+              }
+            },
+            {
+              "filter": {
+                "id": "byRefId",
+                "options": "Load"
+              },
+              "id": "renameByRegex",
+              "options": {
+                "regex": "\\D*(\\d*)",
+                "renamePattern": "Load $1m"
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "100% = no CPU left.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed+area"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 30
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 91
+          },
+          "id": 3,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.cpu",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "groupBy": "dimension",
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "System CPU",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 10
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 91
+          },
+          "id": 31,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.cpu",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "iowait"
+              ],
+              "groupBy": "dimension",
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "IO Wait",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.cpu",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "system"
+              ],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "System",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.cpu",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "user"
+              ],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "User",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "100% = 1 Core",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "mean",
+                    "value": 1
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "viardant"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 100
+          },
+          "id": 30,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "user.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "user",
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "User CPU > (Mean 1%)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "100% = 1 Core",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "unit": "percent"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "lastNotNull",
+                    "value": 1
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "viardant"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 7,
+            "x": 17,
+            "y": 100
+          },
+          "id": 29,
+          "options": {
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "user.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "user",
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Average User CPU > 1%",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "mode": "reduceFields",
+                "reducers": [
+                  "mean"
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 10
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 7,
+            "x": 17,
+            "y": 106
+          },
+          "id": 32,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "user.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "filterBy": "user",
+              "filterValue": "root",
+              "groupBy": "user",
+              "hide": false,
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Root",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "user.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "filterBy": "user",
+              "filterValue": "viardant",
+              "groupBy": "user",
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Viardant",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "100% = 1 Core",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "mean",
+                    "value": 1
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 109
+          },
+          "id": 15,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Mean",
+              "sortDesc": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Apps CPU (Mean > 1%)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "100% = 1 Core",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "unit": "percent"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "lastNotNull",
+                    "value": 1
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 109
+          },
+          "id": 18,
+          "options": {
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Average Apps CPU > 1%",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "mode": "reduceFields",
+                "reducers": [
+                  "mean"
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "100% = 1 Core",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "left",
+                "cellOptions": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "color"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 15
+                  },
+                  {
+                    "color": "orange",
+                    "value": 30
+                  },
+                  {
+                    "color": "red",
+                    "value": 60
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Field"
+                },
+                "properties": [
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "type": "auto"
+                    }
+                  },
+                  {
+                    "id": "custom.width",
+                    "value": 170
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "StdDev"
+                },
+                "properties": [
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "type": "color-background"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "transparent"
+                        },
+                        {
+                          "color": "#EAB839",
+                          "value": 0.5
+                        },
+                        {
+                          "color": "red",
+                          "value": 1
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "custom.width",
+                    "value": 80
+                  },
+                  {
+                    "id": "custom.align",
+                    "value": "center"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 15,
+            "w": 17,
+            "x": 0,
+            "y": 118
+          },
+          "id": 33,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": [
+              {
+                "desc": true,
+                "displayName": "Mean"
+              }
+            ]
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "groupBy": "app_group",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "systemd.service.cpu.utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "groupBy": "service_name",
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Systemd",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Process CPU (Mean or 95th > 3%)",
+          "transformations": [
+            {
+              "filter": {
+                "id": "byRefId",
+                "options": "Systemd"
+              },
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "(Sys) $1"
+              }
+            },
+            {
+              "filter": {
+                "id": "byRefId",
+                "options": ""
+              },
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "mode": "seriesToRows",
+                "reducers": [
+                  "mean",
+                  "p95",
+                  "lastNotNull",
+                  "stdDev"
+                ]
+              }
+            },
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "greaterOrEqual",
+                      "options": {
+                        "value": "3"
+                      }
+                    },
+                    "fieldName": "Mean"
+                  },
+                  {
+                    "config": {
+                      "id": "greaterOrEqual",
+                      "options": {
+                        "value": "3"
+                      }
+                    },
+                    "fieldName": "95th %"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "StdDev"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 25
+                  },
+                  {
+                    "color": "red",
+                    "value": 50
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 15,
+            "w": 7,
+            "x": 17,
+            "y": 118
+          },
+          "id": 25,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "limit": 10,
+              "values": true
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.cpu_utilization",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "labelsToFields": false,
+                "mode": "seriesToRows",
+                "reducers": [
+                  "stdDev"
+                ]
+              }
+            },
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "greaterOrEqual",
+                      "options": {
+                        "value": "0.1"
+                      }
+                    },
+                    "fieldName": "StdDev"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "StdDev"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        }
+      ],
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 52,
+      "panels": [
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 134
+          },
+          "id": 42,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.memory_some_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "some 300",
+                "some 60"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.memory_full_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "full 60",
+                "full 300"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "B",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "RAM Stress",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "High CPU load indicates resource contention or waiting processes. Spikes or consistent high values could highlight performance issues or bottlenecks.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 15
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 134
+          },
+          "id": 43,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.memory_some_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "some 300",
+                "some 60"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.memory_full_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "full 300",
+                "full 60"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "B",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "pps"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "max",
+                    "value": 1
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 17,
+            "x": 0,
+            "y": 143
+          },
+          "id": 47,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.mem_page_faults",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "major"
+              ],
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Apps Major Page Faults",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "A Major Page Faults is generated when the system needs to load the memory page from disk or swap memory.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 15
+                  }
+                ]
+              },
+              "unit": "pps"
+            },
+            "overrides": [
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "major"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": []
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 7,
+            "x": 17,
+            "y": 143
+          },
+          "id": 46,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "mem.pgfaults",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "major"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Major Page Faults",
+          "transformations": [
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "",
+                "mode": "unary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true,
+                "unary": {
+                  "fieldName": "major",
+                  "operator": "abs"
+                }
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed+area"
+                }
+              },
+              "mappings": [],
+              "max": 16000,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 30
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "mbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 148
+          },
+          "id": 44,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.ram",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "used",
+                "buffers"
+              ],
+              "groupBy": "dimension",
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "System RAM",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 10
+                  },
+                  {
+                    "color": "red",
+                    "value": 20
+                  }
+                ]
+              },
+              "unit": "mbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 148
+          },
+          "id": 45,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.ram",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "used",
+                "buffers"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "mbytes"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "mean",
+                    "value": 10
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 157
+          },
+          "id": 48,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Mean",
+              "sortDesc": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.mem_usage",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Apps RAM",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "unit": "mbytes"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "lastNotNull",
+                    "value": 100
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 157
+          },
+          "id": 49,
+          "options": {
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.mem_usage",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Average Apps RAM",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "mode": "reduceFields",
+                "reducers": [
+                  "mean"
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 16978,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 10
+                  }
+                ]
+              },
+              "unit": "mbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 166
+          },
+          "id": 51,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "limit": 10,
+              "values": true
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.mem_usage",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "labelsToFields": false,
+                "mode": "seriesToRows",
+                "reducers": [
+                  "stdDev"
+                ]
+              }
+            },
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "greaterOrEqual",
+                      "options": {
+                        "value": "0.1"
+                      }
+                    },
+                    "fieldName": "StdDev"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "StdDev"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        }
+      ],
+      "title": "RAM",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 43
+      },
+      "id": 63,
+      "panels": [
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 172
+          },
+          "id": 55,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.io_some_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "some 300",
+                "some 60"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Some",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.io_full_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "full 60",
+                "full 300"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Full",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Disk Stress",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 10
+                  },
+                  {
+                    "color": "red",
+                    "value": 30
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 172
+          },
+          "id": 56,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.io_some_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "some 300",
+                "some 60"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "system.io_full_pressure",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "full 300",
+                "full 60"
+              ],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "B",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "Kibits"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "in"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Read"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "out"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Write"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 181
+          },
+          "id": 73,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Mean",
+              "sortDesc": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.io",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "System IO",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 10
+                  },
+                  {
+                    "color": "red",
+                    "value": 30
+                  }
+                ]
+              },
+              "unit": "Kbits"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "abs(out)"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Write"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "in"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Read"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 181
+          },
+          "id": 72,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.io",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "transformations": [
+            {
+              "id": "calculateField",
+              "options": {
+                "mode": "unary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "unary": {
+                  "fieldName": "out",
+                  "operator": "abs"
+                }
+              }
+            },
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "time",
+                    "in",
+                    "abs(out)"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ms"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 17,
+            "x": 0,
+            "y": 190
+          },
+          "id": 57,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "disk.await",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "group": "avg",
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Disk Latency",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 20
+                  },
+                  {
+                    "color": "red",
+                    "value": 40
+                  }
+                ]
+              },
+              "unit": "ms"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 7,
+            "x": 17,
+            "y": 190
+          },
+          "id": 59,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "disk.await",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "KiBs"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "mean",
+                    "value": 10
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "systemd",
+                      "ModemManager",
+                      "NETWORK-VIEWER",
+                      "NetworkManager",
+                      "avahi-daemon",
+                      "bamfdaemon",
+                      "bluetoothd",
+                      "catatonit",
+                      "cifs",
+                      "cupsd",
+                      "debugfs.plugin",
+                      "desktop",
+                      "dirmngr",
+                      "dnsmasq",
+                      "dunst",
+                      "ebpf.plugin",
+                      "exportarr",
+                      "ext4",
+                      "go.d.plugin",
+                      "gpg-agent",
+                      "gssproxy",
+                      "kcompactd",
+                      "kernel",
+                      "khugepaged",
+                      "kmigration",
+                      "ksmd",
+                      "ksuperkey",
+                      "kswapd",
+                      "libvirt",
+                      "mpd",
+                      "nfacct.plugin",
+                      "nfs",
+                      "node",
+                      "packagemanager",
+                      "plank",
+                      "podman",
+                      "polkitd",
+                      "python",
+                      "qemu-system-x86_64",
+                      "rsyslogd",
+                      "rtkit-daemon",
+                      "sd-pam",
+                      "sshd",
+                      "systemd-journald",
+                      "tc-qos-helper",
+                      "thinkfan",
+                      "thunar",
+                      "udisksd",
+                      "upowerd",
+                      "virt-manager",
+                      "vncsession",
+                      "wpa_supplicant",
+                      "xfce-polkit",
+                      "xfs",
+                      "zsh"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 195
+          },
+          "id": 60,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Mean",
+              "sortDesc": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.disk_logical_io",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Apps IO",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "unit": "KiBs"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byValue",
+                  "options": {
+                    "op": "lte",
+                    "reducer": "lastNotNull",
+                    "value": 10
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": true,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 195
+          },
+          "id": 61,
+          "options": {
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.disk_logical_io",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Average Apps IO",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "mode": "reduceFields",
+                "reducers": [
+                  "mean"
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 10000,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 5
+                  },
+                  {
+                    "color": "red",
+                    "value": 10
+                  }
+                ]
+              },
+              "unit": "KiBs"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 204
+          },
+          "id": 62,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "limit": 10,
+              "values": true
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "app.disk_logical_io",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "app_group",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "includeTimeField": false,
+                "labelsToFields": false,
+                "mode": "seriesToRows",
+                "reducers": [
+                  "stdDev"
+                ]
+              }
+            },
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "greaterOrEqual",
+                      "options": {
+                        "value": "0.1"
+                      }
+                    },
+                    "fieldName": "StdDev"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "StdDev"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        }
+      ],
+      "title": "Disk",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 44
+      },
+      "id": 71,
+      "panels": [
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "pps"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": "Drops In"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Drops (In)"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": "Errors In"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Errors (In)"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": "Errors Out"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Errors (Out)"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": "Drops Out"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Drops (Out)"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 210
+          },
+          "id": 64,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "net.drops",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "inbound"
+              ],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Drops In",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "net.errors",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "inbound"
+              ],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Errors In",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "net.drops",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "outbound"
+              ],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Drops Out",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "net.errors",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [
+                "outbound"
+              ],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "sum",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Errors Out",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Net Issues",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 1
+                  },
+                  {
+                    "color": "red",
+                    "value": 2
+                  }
+                ]
+              },
+              "unit": "pps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 210
+          },
+          "id": 65,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "net.drops",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "groupBy": "dimension",
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            },
+            {
+              "contextId": "net.errors",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "groupBy": "dimension",
+              "hide": false,
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "B",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-green",
+                "mode": "palette-classic-by-name"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 50,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "transparent"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "Kbits"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "InOctets"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Net In"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "OutOctets"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Net Out"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 17,
+            "x": 0,
+            "y": 219
+          },
+          "id": 74,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Mean",
+              "sortDesc": true,
+              "width": 110
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.net",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "group": "avg",
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "Apps",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "System Net",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "netdatacloud-netdata-datasource",
+            "uid": "${DS_NETDATACLOUD}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 10
+                  },
+                  {
+                    "color": "red",
+                    "value": 30
+                  }
+                ]
+              },
+              "unit": "Kbits"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "InOctets"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Net In"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "abs(OutOctets)"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Net Out"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 17,
+            "y": 219
+          },
+          "id": 75,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "stdDev"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "contextId": "system.net",
+              "datasource": {
+                "type": "netdatacloud-netdata-datasource",
+                "uid": "${DS_NETDATACLOUD}"
+              },
+              "dimensions": [],
+              "groupBy": "dimension",
+              "hide": false,
+              "method": "avg",
+              "nodes": [
+                "${NETDATA_NODE_ID}"
+              ],
+              "refId": "A",
+              "roomId": "${NETDATA_ROOM_ID}",
+              "spaceId": "${NETDATA_SPACE_ID}"
+            }
+          ],
+          "title": "Standard Deviation",
+          "transformations": [
+            {
+              "id": "calculateField",
+              "options": {
+                "mode": "unary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "unary": {
+                  "fieldName": "OutOctets",
+                  "operator": "abs"
+                }
+              }
+            },
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "time",
+                    "InOctets",
+                    "abs(OutOctets)"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "stat"
+        }
+      ],
+      "title": "Net",
+      "type": "row"
+    }
+  ],
+  "refresh": "auto",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "${NODE_NAME}",
+  "uid": "",
+  "version": 2,
+  "weekStart": ""
+}
